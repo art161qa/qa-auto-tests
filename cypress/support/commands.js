@@ -142,7 +142,7 @@ Cypress.Commands.add('createIncident', (orderId, problem, comment, tokenIndex = 
             method: 'POST',
             url: 'https://dev-incidents.okolo.app/api/v1/incidents/create',
             headers: {
-                'app-token': Cypress.env('token')[tokenIndex]
+                'app-token': Cypress.env('crmToken')[tokenIndex]
             },
             body: {
                 channel: "chat",
@@ -164,7 +164,7 @@ Cypress.Commands.add('orderList', (tokenIndex = 0) => {
         method: 'POST',
         url: 'https://dev-orders.okolo.app/api/order/list',
         headers: {
-            'app-token': Cypress.env('token')[tokenIndex]
+            'app-token': Cypress.env('crmToken')[tokenIndex]
         },
         body: {
             filters: {},
