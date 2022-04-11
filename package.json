@@ -1,0 +1,20 @@
+{
+  "name": "automation-qa-examination",
+  "version": "1.0.0",
+  "description": "Repository for qa examination",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.x5food.tech/autotests/automation-qa-examination.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "cypress": "^9.5.3",
+    "cypress-file-upload": "^5.0.8"
+  }
+}
