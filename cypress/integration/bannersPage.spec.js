@@ -2,9 +2,10 @@ import {bannersPage} from '..//fixtures/Pages/bannerPage'
 let bannerName = 'Testing banner 5'
 describe('Banners', ()=>{
     before(()=>{
-        cy.visitCrmPage('9053330505', 'employee', 'dev','https://dev-crm.okolo.app/')
+    cy.visitCrmPage('9053330505', 'employee', 'dev','administration')
+    
     })
-it('First case', ()=>{
+it.only('First case', ()=>{
     bannersPage.goToBannerSettings()
     bannersPage.getCreateBannerButton()
     bannersPage.fillBannersName(bannerName)
@@ -20,8 +21,12 @@ it('First case', ()=>{
     cy.wait(1500)
     bannersPage.getCreateButton()
     bannersPage.searchBanner(bannerName)
+    bannersPage.applyStatusFilter('Неактивен')
     bannersPage.openDetalPage(bannerName)
     bannersPage.getChangeStatusButton()
     bannersPage.getActivateButton()
+    })
+    it('auth method', () => {
+    
     })
 })

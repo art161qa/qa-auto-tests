@@ -45,6 +45,7 @@
 import 'cypress-file-upload'
 
 
+
 // Authorization 
 Cypress.Commands.add('genCode', (phone, role, stand) => {
 
@@ -107,7 +108,7 @@ Cypress.Commands.add('getMobileToken', (phone, role, stand) => {
     })
 })
 
-Cypress.Commands.add('visitCrmPage', (phone, role,stand, route) => {
+Cypress.Commands.add('visitCrmPage', (phone, role, stand, route) => {
     let token
     let id
     let expires
@@ -122,6 +123,14 @@ Cypress.Commands.add('visitCrmPage', (phone, role,stand, route) => {
             win.localStorage.expire_date = expires
             win.localStorage.id = id
         }
+    })
+})
+
+Cypress.Commands.add('authCrm', (phone, role, stand) => {
+    cy.getCrmToken(phone, role,stand).then(response => {
+        window.localStorage.setItem ('token',response.body.session.token),
+        window.localStorage.setItem ('id',response.body.session.id),
+        window.localStorage.setItem ('expires',response.body.session.expires)
     })
 })
 

@@ -33,12 +33,21 @@ export class BannersPage{
     }
 
     selectActivityTimeFrom(hour,minute){
-        cy.get('ul[data-type="hour"]').eq(2).contains(hour).click()
-        cy.get('ul[data-type="minute"]').eq(2).contains(minute).click()
+        cy.get('.mx-datepicker-body > .mx-range-wrapper > :nth-child(1) > .mx-time-content > .mx-time-columns > :nth-child(1) > .mx-scrollbar-wrap > .mx-time-list')
+            .find(`li[data-index= ${hour}]`)
+            .click()
+        cy.get('.mx-datepicker-body > .mx-range-wrapper > :nth-child(1) > .mx-time-content > .mx-time-columns > :nth-child(2) > .mx-scrollbar-wrap > .mx-time-list')
+            .find(`li[data-index= ${minute}]`)
+            .click()
+  
     }
     selectActivityTimeTo(hour,minute){
-        cy.get('ul[data-type="hour"]').eq(1).contains(hour).click()
-        cy.get('ul[data-type="minute"]').eq(1).contains(minute).click()
+        cy.get('.mx-datepicker-body > .mx-range-wrapper > :nth-child(2) > .mx-time-content > .mx-time-columns > :nth-child(1) > .mx-scrollbar-wrap > .mx-time-list')
+            .find(`li[data-index= ${hour}]`)
+            .click()
+        cy.get('.mx-datepicker-body > .mx-range-wrapper > :nth-child(2) > .mx-time-content > .mx-time-columns > :nth-child(2) > .mx-scrollbar-wrap > .mx-time-list')
+            .find(`li[data-index= ${minute}]`)
+            .click()
     }
     getUploadImageButton(){
        return cy.get('#banner-img').click({force:true})
@@ -46,6 +55,10 @@ export class BannersPage{
 
     getCreateButton(){
         return cy.get('[data-cy="create-banner-inner-button"]').click()
+    }
+
+    applyStatusFilter(status){
+        return cy.get('[data-cy="banners-filters-switcher"]').contains(status).click()
     }
 
     searchBanner(name){
