@@ -1,11 +1,12 @@
+/// <reference types="cypress" />
 import {bannersPage} from '..//fixtures/Pages/bannerPage'
 let bannerName = 'Testing banner 5'
 describe('Banners', ()=>{
     before(()=>{
-    cy.visitCrmPage('9053330505', 'employee', 'dev','administration')
+    //cy.visitCrmPage('9053330505', 'employee', 'dev','administration')
     
     })
-it.only('First case', ()=>{
+it('First case', ()=>{
     bannersPage.goToBannerSettings()
     bannersPage.getCreateBannerButton()
     bannersPage.fillBannersName(bannerName)
@@ -26,7 +27,8 @@ it.only('First case', ()=>{
     bannersPage.getChangeStatusButton()
     bannersPage.getActivateButton()
     })
-    it('auth method', () => {
-    
+    it.only('auth method', () => {
+        cy.authCrm('9053330505', 'employee', 'dev')
+        cy.visit('/')
     })
 })

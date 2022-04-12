@@ -5,9 +5,8 @@ import { pushNotifications } from '../fixtures/Pages/pushNotification'
 describe('PushNotifications', ()=>{
     before(()=>{
         cy.visitCrmPage('9053330505', 'employee', 'dev','https://dev-crm.okolo.app/')
-        //cy.getCrmToken('9017456860', 'employee', 'dev')
     })
-it.only('Send push', ()=>{
+it('Send push', ()=>{
     pushNotifications.goToPushSettings()
     pushNotifications.getHeaderPushField().type('Some header')
     pushNotifications.getTextPushField().type('Some text')
@@ -29,7 +28,4 @@ it('Send push (Upload list of device id)', () => {
     pushNotifications.checkNotifyExist()
     pushNotifications.checkNotifyText()
     })
-it('get token', ()=> {
-    cy.orderList()
-})
 })
