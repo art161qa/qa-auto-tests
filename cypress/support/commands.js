@@ -130,7 +130,7 @@ Cypress.Commands.add('authCrm', (phone, role, stand) => {
     cy.getCrmToken(phone, role,stand).then(response => {
         window.localStorage.setItem ('token',response.body.session.token),
         window.localStorage.setItem ('id',response.body.session.id),
-        window.localStorage.setItem ('expires',response.body.session.expires)
+        window.localStorage.setItem ('expire_date',response.body.session.expires)
     })
 })
 
