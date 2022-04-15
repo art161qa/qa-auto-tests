@@ -134,7 +134,7 @@ Cypress.Commands.add('authCrm', (phone, role, stand) => {
     })
 })
 
-Cypress.Commands.add('emulateMissingCall', (phone, stand) => {
+Cypress.Commands.add('emulateMissingCall', (stand) => {
     cy.request({
         method: 'POST',
         url: `https://${stand}-telephony.okolo.app/events/summary`,
@@ -146,10 +146,10 @@ Cypress.Commands.add('emulateMissingCall', (phone, stand) => {
     })
 })
 
-Cypress.Commands.add('createIncident', (orderId, problem, comment, tokenIndex = 0) => {
+Cypress.Commands.add('createIncident', (stand, orderId, problem, comment, tokenIndex = 0) => {
         cy.request({
             method: 'POST',
-            url: 'https://dev-incidents.okolo.app/api/v1/incidents/create',
+            url: `https://${stand}-incidents.okolo.app/api/v1/incidents/create`,
             headers: {
                 'app-token': Cypress.env('crmToken')[tokenIndex]
             },

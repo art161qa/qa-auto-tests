@@ -4,7 +4,7 @@ import { pushNotifications } from '../fixtures/Pages/pushNotification'
 //let pushNot = new PushNotifications()
 describe('PushNotifications', ()=>{
     before(()=>{
-        cy.visitCrmPage('9053330505', 'employee', 'dev','https://dev-crm.okolo.app/')
+        cy.visitCrmPage('9053330505', 'employee', 'dev','administration')
     })
 it('Send push', ()=>{
     pushNotifications.goToPushSettings()
@@ -12,7 +12,7 @@ it('Send push', ()=>{
     pushNotifications.getTextPushField().type('Some text')
     pushNotifications.getRecipientFilter()
     pushNotifications.selectRecipientByDeviceId()
-    pushNotifications.typeLink('https://www.dev-admin.okolo.app')
+    pushNotifications.typeLink('https://www.dev-admin.okojlo.app')
     pushNotifications.getSendPushButton().click()
     pushNotifications.checkNotifyExist()
     })

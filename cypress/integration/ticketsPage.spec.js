@@ -3,10 +3,10 @@ import { ticketPage } from "../fixtures/Pages/ticketPage"
 describe('PushNotifications', ()=>{
   
     before(()=>{
-        cy.visitCrmPage('9053330505', 'employee', 'dev','https://dev-crm.okolo.app/')
+      cy.visitCrmPage('9053330505', 'employee', 'dev','https://c7-dev-crm.okolo.app/')
     })
 it('Work with a ticket', ()=>{
-      cy.emulateMissingCall('79169546257','dev')
+      cy.emulateMissingCall('c7-dev')
       ticketPage.goToTicketsList()
       cy.wait(500)
       ticketPage.getSortFilter()
@@ -22,7 +22,7 @@ it('Work with a ticket', ()=>{
       ticketPage.checkTicketStatus('Решено')
     })
 it('Work with an incident', ()=>{
-    cy.createIncident(10103243, "3", "Тестовый комментарий")
+    cy.createIncident('c7-dev', 10354755, "3", "Тестовый комментарий")
     ticketPage.goToIncidentList()
     cy.wait(500)
     ticketPage.openIncidentDetailPage()

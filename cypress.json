@@ -1,15 +1,15 @@
 {
-    "baseUrl": "https://dev-crm.okolo.app",
-    "defaultCommandTimeout": 20000,
-    "pageLoadTimeout": 50000,
-    "requestTimeout": 6000,
-    "responseTimeout": 30000,
-    "chromeWebSecurity":false,
-    "viewportHeight": 800,
-    "viewportWidth": 1280,
-    "reporter": "junit",
-    "reporterOptions": {
-        "mochaFile": "reports/junit.xml",
-        "toConsole": true
-      }
+  "baseUrl": "https://c7-dev-crm.okolo.app",
+  "defaultCommandTimeout": 20000,
+  "pageLoadTimeout": 50000,
+  "requestTimeout": 6000,
+  "responseTimeout": 30000,
+  "chromeWebSecurity":false,
+  "viewportHeight": 800,
+  "viewportWidth": 1280,
+  "reporter": "junit",
+  "reporterOptions": {
+      "mochaFile": "reports/junit.xml",
+      "toConsole": true
+    }
 }
