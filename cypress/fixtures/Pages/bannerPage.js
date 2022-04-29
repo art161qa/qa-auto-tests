@@ -22,6 +22,7 @@ export class BannersPage{
     }
 
     selectDateFrom(date){
+        
         return cy.get(`[title = ${date}][class = "cell"]`).click()
     }
     selectDateTo(date){

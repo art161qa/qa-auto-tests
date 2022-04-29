@@ -1,20 +1,20 @@
 /// <reference types="cypress" />
 import {bannersPage} from '..//fixtures/Pages/bannerPage'
-let bannerName = 'Testing banner 5'
+let bannerName = 'Testing banner'
 describe('Banners', ()=>{
     before(()=>{
     cy.visitCrmPage('9053330505', 'employee', 'dev','administaration')
 })
     
-it.only('First case', ()=>{
+it('First case', ()=>{
     bannersPage.goToBannerSettings()
     bannersPage.getCreateBannerButton()
     bannersPage.fillBannersName(bannerName)
     bannersPage.selectBannerAction('Скопировать промокод')
     bannersPage.getPromoField().type('CODECODE')
     bannersPage.getValidityField()
-    bannersPage.selectDateFrom('2022-04-29')
-    bannersPage.selectDateTo('2022-05-25')
+    bannersPage.selectDateFrom('2022-05-02')
+    bannersPage.selectDateTo('2022-05-07')
     bannersPage.getActivityTimeField()
     bannersPage.selectActivityTimeFrom(12,25)
     bannersPage.selectActivityTimeTo(22,40)
@@ -27,8 +27,8 @@ it.only('First case', ()=>{
     bannersPage.getChangeStatusButton()
     bannersPage.getActivateButton()
     })
-    it('auth method', () => {
-        //cy.authCrm('9053330505', 'employee', 'dev')
-        cy.visit('https://dev-crm.okolo.app')
+    it.skip('auth method', () => {
+        cy.authCrm('9053330505', 'employee', 'dev')
+        cy.visit('/')
     })
 })
